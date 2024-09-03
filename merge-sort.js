@@ -42,15 +42,34 @@ function mergeSort(arr) {
 function merge(arrA, arrB) {
 
   // Create an empty return array
+  let merged = [];
 
   // Point to the first value of each array
+  let indexA = 0;
+  let indexB = 0;
+
   // While there are still values in each array...
+  while (indexA < arrA.length || indexB < arrB.length){
     // Compare the first values of each array
+    let valueA = arrA[indexA];
+    let valueB = arrB[indexB];
+
+    if (valueB === undefined || valueA < valueB){
+      merged.push(valueA);
+      indexA++;
+    }
+
+    if (valueA === undefined || valueB < valueA){
+      merged.push(valueB)
+      indexB++;
+    }
     // Add the smaller value to the return array
     // Move the pointer to the next value in that array
+  }
+
 
   // Return the return array
-
+  return merged
 }
 
 module.exports = [merge, mergeSort];
